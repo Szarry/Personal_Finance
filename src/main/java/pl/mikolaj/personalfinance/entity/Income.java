@@ -4,6 +4,7 @@ package pl.mikolaj.personalfinance.entity;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import pl.mikolaj.personalfinance.User.AppUser;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -20,5 +21,5 @@ public class Income {
     private String type_Of_Income;
 
     @ManyToOne
-    private User user;
+    private AppUser user;
 }
