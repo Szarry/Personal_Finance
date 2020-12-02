@@ -134,20 +134,24 @@ public class AdminController {
         return "admin/incomeList";
     }
 
+    // List Budget mapping //
+    @GetMapping("/budgetList")
+    public String budgetList(Model model) {
+        List<Budget> allBudget = budgetRepository.findAll();
+        model.addAttribute("budgetList", allBudget);
+        return "admin/budgetList";
+    }
+
 
 
 
     @GetMapping("/incomeDelete/{incomeId}")
-        public String incomeDelete(){
-
-        return "admin/incomeDelete";
-        }
-    @PostMapping ("/incomeDelete/{incomeId}")
-    public String performIncomeDelete(@RequestParam int Id){
-
+        public String incomeDelete(@PathVariable int incomeId){
+        Income income = incomeRepository.findById(incomeId);
+        incomeRepository.delete(income);
 
         return "redirect:/admin/incomeList";
-    }
+        }
 
     // Add Budget mapping //
     @GetMapping("/budgetAdd")
@@ -166,28 +170,38 @@ public class AdminController {
             budget.setDate_Time(localDateTime);
             budgetRepository.save(budget);
         }
-        return "redirect:/admin/";
+        return "redirect:/admin/budgetList";
     }
 
     // EditBudget mapping //
-    @GetMapping("/budgetEdit")
-    public String budgetEdit(Model model) {
-        model.addAttribute("budget", new Budget());
-//        Budget budget1 =
-        return "admin/budgetAdd";
+    @GetMapping("/budgetEdit/{budgetId}")
+    public String budgetEdit(@PathVariable int budgetId, Model model) {
+        Budget budget = budgetRepository.findById(budgetId);
+        model.addAttribute("budget", budget);
+
+        return "admin/budgetEdit";
     }
 
-    @PostMapping("/budgetEdit")
-    public String performBudgetEdit(@Valid Budget budget, BindingResult result) {
+    @PostMapping("/budgetEdit/{budgetId}")
+    public String performBudgetEdit(@Valid Budget budget, BindingResult result, @PathVariable int budgetId) {
 
         if (result.hasErrors()) {
-            return "admin/budgetAdd";
+            return "admin/budgetEdit/"+budgetId;
         } else {
             LocalDateTime localDateTime = LocalDateTime.now();
             budget.setDate_Time(localDateTime);
+            budget.setId(budgetId);
             budgetRepository.save(budget);
         }
-        return "redirect:/admin/";
+        return "redirect:/admin/budgetList";
+    }
+
+    @GetMapping("/budgetDelete/{budgetId}")
+    public String budgetDelete(@PathVariable int budgetId){
+        Budget budget = budgetRepository.findById(budgetId);
+        budgetRepository.delete(budget);
+
+        return "redirect:/admin/budgetList";
     }
 
 

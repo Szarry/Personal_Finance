@@ -1,4 +1,4 @@
-package pl.mikolaj.personalfinance.DAO.User;
+package pl.mikolaj.personalfinance.role;
 
 import lombok.Data;
 

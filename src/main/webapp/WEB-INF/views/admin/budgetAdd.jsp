@@ -20,9 +20,10 @@
         <div class="form-group">
             <label class="col-md-4 control-label" for="budget">Budżet</label>
             <div class="col-md-4">
-                <form:input path="amount" name="budget" placeholder="0,00" type="number" required=""/>
+                <form:input path="amount" name="budget" placeholder="0,00" type="text" required=""/>
                 <span class="help-block">Wprowadź jaki masz budżet na obecny miesiąc</span>
             </div>
+            <form:textarea path="description"/>
         </div>
 
 

@@ -9,20 +9,21 @@
     <h1 class="h3 mb-4 text-gray-800">Przychody</h1>
 
     <%--                <form class="form-horizontal">--%>
-    <form:form modelAttribute="amount" method="post">
+    <form:form modelAttribute="budget" method="post">
     <!-- Text input-->
     <fieldset>
 
         <!-- Form Name -->
-        <legend>Dodaj budżet</legend>
+        <legend>Edytuj budżet</legend>
 
         <!-- Budżet-->
         <div class="form-group">
             <label class="col-md-4 control-label" for="budget">Budżet</label>
             <div class="col-md-4">
-                <form:input path="budget" name="budget" placeholder="0,00" type="number" required=""/>
-                <span class="help-block">Wprowadź jaki masz budżet na obecny miesiąc</span>
+                <form:input path="amount" name="budget" placeholder="0,00" type="number" required=""/>
+                <span class="help-block">Edytuj masz budżet na obecny miesiąc</span>
             </div>
+            <form:textarea path="description"/>
         </div>
 
 

@@ -2,6 +2,9 @@ package pl.mikolaj.personalfinance.DAO.User;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import pl.mikolaj.personalfinance.role.Role;
+import pl.mikolaj.personalfinance.role.RoleRepository;
+
 import java.util.Arrays;
 import java.util.HashSet;
 

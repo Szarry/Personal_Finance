@@ -1,6 +1,7 @@
 package pl.mikolaj.personalfinance.DAO.User;
 
 import lombok.Data;
+import pl.mikolaj.personalfinance.role.Role;
 
 import javax.persistence.*;
 import javax.validation.constraints.*;

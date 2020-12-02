@@ -36,8 +36,6 @@ public class HomeController {
     public String registerUser(@ModelAttribute("AppUser") @Valid AppUser appUser, BindingResult result, Model model) {
 
             if (result.hasErrors()) {
-                System.out.println("BŁEDY" + result);
-                System.out.println(appUser);
             return "/register";
         }
         AppUser userByEmail = userService.findByEmail(appUser.getEmail());

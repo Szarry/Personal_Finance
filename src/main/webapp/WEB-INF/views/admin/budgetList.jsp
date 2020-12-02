@@ -20,42 +20,37 @@
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
 
-                            <tr>
+                    <tr>
                         <td>ID</td>
-                        <td>Typ</td>
-                        <td>Opis</td>
                         <td>Kwota</td>
-                        <td>Kto dodał</td>
-                        <td>Kto poprawił</td>
-                                <td>Data</td>
-                                <td>Akcja</td>
+                        <td>Data dodania</td>
+                        <td>Opis</td>
+                        <td>Akcja</td>
 
-                    <c:forEach items="${incomeList}" var="income">
+                        <c:forEach items="${budgetList}" var="budget">
                     <tr>
 
-                            <td>${income.id}</td>
-                            <td>${income.typeOfIncome}</td>
-                            <td>${income.description}</td>
-                            <td>${income.amount}</td>
-                            <td>${income.user.firstname}</td>
-                            <td>${income.updatedBy}</td>
-                            <td>${income.date}</td>
-                            <td>
-                                <div class="my-2"></div>
-                                <a href="<c:url value="/admin/incomeEdit/${income.id}"/> " class="btn btn-warning btn-icon-split">
+                        <td>${budget.id}</td>
+                        <td>${budget.amount}</td>
+                        <td>${budget.date_Time}</td>
+                        <td>${budget.description}</td>
+
+                        <td>
+                            <div class="my-2"></div>
+                            <a href="<c:url value="/admin/budgetEdit/${budget.id}"/> " class="btn btn-warning btn-icon-split">
                                     <span class="icon text-white-50">
                                     <i class="fas fa-exclamation-triangle"></i>
                                     </span>
-                                    <span class="text">Edytuj</span>
-                                </a>
-                                <a href="<c:url value="/admin/incomeDelete/${income.id}"/>" onClick="if(confirm('Czy na pewno chcesz usunąć pozycję?')==false) return false;"class="btn btn-danger btn-icon-split">
+                                <span class="text">Edytuj</span>
+                            </a>
+                            <a href="<c:url value="/admin/budgetDelete/${budget.id}"/>" onClick="if(confirm('Czy na pewno chcesz usunąć drink?')==false) return false;" class="btn btn-danger btn-icon-split">
                                     <span class="icon text-white-50">
                                     <i class="fas fa-trash"></i>
                                     </span>
-                                    <span class="text">Usuń</span>
-                                </a>
-                            </td>
-                        </tr>
+                                <span class="text">Usuń</span>
+                            </a>
+                        </td>
+                    </tr>
                     </c:forEach>
                 </table>
             </div>
