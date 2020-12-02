@@ -19,15 +19,27 @@
         <div class="card-body">
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+
+                            <tr>
+                        <td>ID</td>
+                        <td>Typ</td>
+                        <td>Opis</td>
+                        <td>Kwota</td>
+                        <td>Kto dodał</td>
+                        <td>Kto poprawił</td>
+                                <td>Data</td>
+                                <td>Akcja</td>
+
                     <c:forEach items="${incomeList}" var="income">
-                        <tr>
+                    <tr>
 
                             <td>${income.id}</td>
-                            <td>${income.type_Of_Income}</td>
+                            <td>${income.typeOfIncome}</td>
                             <td>${income.description}</td>
-                            <td>${income.income}</td>
+                            <td>${income.amount}</td>
                             <td>${income.user.firstname}</td>
                             <td>${income.updatedBy}</td>
+                            <td>${income.date}</td>
                             <td>
                                 <div class="my-2"></div>
                                 <a href="<c:url value="/admin/incomeEdit/${income.id}"/> " class="btn btn-warning btn-icon-split">

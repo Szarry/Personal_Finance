@@ -11,4 +11,5 @@ public interface BudgetRepository extends JpaRepository<Budget, Integer> {
     @Query(value = "INSERT into budget values (1, ?,?) ", nativeQuery = true)
     void saveBudget(BigDecimal budget, LocalDateTime dateTime);
 
+
 }

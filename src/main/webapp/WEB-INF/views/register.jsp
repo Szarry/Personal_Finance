@@ -59,6 +59,9 @@
                                 <form:input path="email" type="email" class="form-control form-control-user"
                                             id="exampleInputEmail" placeholder="Adres e-mail" required=""/>
                                 <form:errors path="email" />
+                                <p>${message}</p>
+
+
                             </div>
                             <div class="form-group row">
                                 <div class="col-sm-6 mb-3 mb-sm-0">

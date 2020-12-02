@@ -17,15 +17,15 @@ public class AppUser {
 
     @Column
     @NotNull
-    @Size(min=2, max=10, message = "Minimum 2 znaki, maksimum 10")
+    @Size(min=2, max=10)
     private String username;
 
     @Column
-    @NotEmpty (message = "Pole nie może być puste")
+    @NotEmpty (message = "Podaj imię")
     public String firstname;
 
     @Column
-    @NotEmpty (message = "Pole nie może być puste")
+    @NotEmpty (message = "Podaj Nazwisko")
     public String lastname;
 
     @Column (unique = true)

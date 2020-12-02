@@ -15,9 +15,7 @@ public class Budget {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private BigDecimal budget;
+    private BigDecimal amount;
     private LocalDateTime date_Time;
     private String description;
-
-
 }

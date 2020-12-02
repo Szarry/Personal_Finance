@@ -9,7 +9,7 @@
     <h1 class="h3 mb-4 text-gray-800">Przychody</h1>
 
     <%--                <form class="form-horizontal">--%>
-    <form:form modelAttribute="budget" method="post">
+    <form:form modelAttribute="amount" method="post">
     <!-- Text input-->
     <fieldset>
 

@@ -14,34 +14,42 @@ import pl.mikolaj.personalfinance.DAO.User.UserService;
 import javax.validation.Valid;
 
 
-
 @Controller
 @RequestMapping("/")
 public class HomeController {
 
     private final UserService userService;
 
+
     public HomeController(UserRepository userRepository, UserService userService) {
         this.userService = userService;
     }
 
-                                                         // REGISTRATION //
+    // REGISTRATION //
     @GetMapping("/register")
-    public String register (Model model) {
+    public String register(Model model) {
         model.addAttribute("AppUser", new AppUser());
         return "register";
     }
 
     @PostMapping("/register")
-    public String registerUser(@ModelAttribute("AppUser")@Valid AppUser appUser, BindingResult result) {
+    public String registerUser(@ModelAttribute("AppUser") @Valid AppUser appUser, BindingResult result, Model model) {
 
-        if (result.hasErrors()) {
+            if (result.hasErrors()) {
+                System.out.println("BŁEDY" + result);
+                System.out.println(appUser);
             return "/register";
-        } else {
+        }
+        AppUser userByEmail = userService.findByEmail(appUser.getEmail());
+
+            if(userByEmail==null) {
             userService.saveUser(appUser);
-       }
-        return "redirect:/login";
+            return "redirect:/login";
+        }else {
+                String error = "e-mail zajęty!";
+                model.addAttribute("message", error);
+                return "/register";
+            }
     }
-
-
 }
+
